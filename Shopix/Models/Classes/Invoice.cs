@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -6,6 +7,7 @@ namespace Shopix.Models.Classes
 {
     public class Invoice
     {
+        [Key]
         public int InvoiceId { get; set; }
 
         [Column(TypeName = "Char")]
@@ -28,6 +30,8 @@ namespace Shopix.Models.Classes
 
         [Column(TypeName = "Varchar")]
         [StringLength(50)]
-        public string RecievedBy { get; set; }
+        public string ReceivedBy { get; set; }
+
+        public ICollection<LineItem> LineItems { get; set; }
     }
 }

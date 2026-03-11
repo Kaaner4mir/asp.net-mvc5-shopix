@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -18,23 +19,20 @@ namespace Shopix.Models.Classes
         [Required(ErrorMessage = "This field cannot be left blank")]
         public string Brand { get; set; }
 
-        [Column(TypeName = "smallint")]
-        [Required(ErrorMessage = "This field cannot be left blank")]
         public short Stock { get; set; }
 
-        [Column(TypeName = "decimal(18,2)")]
-        [Required(ErrorMessage = "This field cannot be left blank")]
         public decimal BuyingPrice { get; set; }
 
-        [Column(TypeName = "decimal(18,2)")]
-        [Required(ErrorMessage = "This field cannot be left blank")]
         public decimal SellingPrice { get; set; }
 
-        [Column(TypeName = "bit")]
         public bool Status { get; set; }
 
         [Column(TypeName = "varchar")]
         [StringLength(250)]
         public string ProductImage { get; set; }
+
+        public Category Category { get; set; }
+
+        public ICollection<Activities> Activities { get; set; }
     }
 }

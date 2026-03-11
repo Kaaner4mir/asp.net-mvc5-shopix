@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Shopix.Models.Classes
@@ -27,5 +28,7 @@ namespace Shopix.Models.Classes
         [StringLength(75, ErrorMessage = "You can use a maximum of 75 characters")]
         [Required(ErrorMessage = "This field cannot be left blank")]
         public string AccountEmail { get; set; }
+
+        public ICollection<Activities> Activities { get; set; }
     }
 }

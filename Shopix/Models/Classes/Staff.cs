@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Shopix.Models.Classes
@@ -21,5 +22,9 @@ namespace Shopix.Models.Classes
         [Column(TypeName = "varchar")]
         [StringLength(250)]
         public string StaffImage { get; set; }
+
+        public ICollection<Activities> Activities { get; set; }
+
+        public Department Department { get; set; }
     }
 }
