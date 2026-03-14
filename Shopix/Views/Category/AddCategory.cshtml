@@ -1,0 +1,17 @@
+@model Shopix.Models.Classes.Category
+
+
+@{
+    ViewBag.Title = "AddCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form class="form-group" method="post">
+    @Html.AntiForgeryToken()
+    @Html.LabelFor(x => x.CategoryName)
+    @Html.TextBoxFor(x => x.CategoryName, new {@class = "form-control"})
+
+    <br>
+    <button class="btn btn-primary">Save</button>
+</form>
+

@@ -1,0 +1,21 @@
+@model Shopix.Models.Classes.Category
+
+
+@{
+    ViewBag.Title = "GetCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("UpdateCategory", "Category", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+<div class="form-group">
+    @Html.LabelFor(x=>x.CategoryName)
+    @Html.TextBoxFor(x=>x.CategoryName,new {@class="form-control"})
+    @Html.HiddenFor(x=>x.CategoryId)
+
+    <br>
+    <button class="btn btn-warning">Update</button>
+</div>
+}
+

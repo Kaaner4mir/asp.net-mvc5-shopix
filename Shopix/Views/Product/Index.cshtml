@@ -1,0 +1,39 @@
+﻿@using Shopix.Models.Classes;
+@model List<Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-hover" style="font-family:'Lucida Sans', 'Lucida Sans Regular',
+    'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Brand</th>
+        <th>Stock</th>
+        <th>Buying Price</th>
+        <th>Selling Price</th>
+        <th>Category</th>
+        <th colspan="2">Image</th>
+    </tr> 
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ProductId</td>
+                <td>@item.ProductName</td>
+                <td>@item.Brand</td>
+                <td>@item.Stock</td>
+                <td>@item.BuyingPrice</td>
+                <td>@item.SellingPrice</td>
+                <td>@item.Category.CategoryName</td>
+                <td>@item.ProductImage</td>
+                <td><a href="/Product/UpdateProduct/@item.ProductId" class="btn btn-success">Update</a></td>
+                <td><a href="/Product/DeleteProduct/@item.ProductId" class="btn btn-danger">Delete</a></td>
+            </tr>
+        }
+</table>
+
+<a href="/Product/AddProduct/" class="btn btn-primary">Add a New Product</a>
+

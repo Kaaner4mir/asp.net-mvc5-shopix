@@ -1,0 +1,36 @@
+@using Shopix.Models.Classes
+@model List<Category>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-hover" style="font-family:'Lucida Sans', 'Lucida Sans Regular',
+    'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
+    <tr>
+        <th>ID</th>
+        <th colspan="3">Category Name</th>
+    </tr>
+
+    @foreach (var i in Model)
+    {
+        <tr>
+            <td>@i.CategoryId</td>
+            <td>@i.CategoryName</td>
+            <td><a href="/Category/GetCategory/@i.CategoryId" class="btn btn-success">Update</a></td>
+            <td>
+                <form action="/Category/DeleteCategory/@i.CategoryId" method="post" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this category?');">
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+    }
+
+</table>
+
+<a href="/Category/AddCategory" class="btn btn-primary">
+    Add a New Category
+</a>
+

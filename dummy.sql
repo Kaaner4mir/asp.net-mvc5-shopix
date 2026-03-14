@@ -39,7 +39,7 @@ INSERT INTO [dbo].[Staffs] ([StaffFirstName], [StaffLastName], [StaffImage], [De
 GO
 
 -- 5. Products (100 - Markalı ve çok çeşitli)
-INSERT INTO [dbo].[Products] ([ProductName], [Brand], [Stock], [BuyingPrice], [SellingPrice], [Status], [ProductImage], [Category_CategoryId]) VALUES 
+INSERT INTO [dbo].[Products] ([ProductName], [Brand], [Stock], [BuyingPrice], [SellingPrice], [Status], [ProductImage], [CategoryId]) VALUES 
 ('Galaxy S24 Ultra', 'Samsung', 150, 900.00, 1299.99, 1, '/images/products/dummy.jpg', 1),
 ('iPhone 15 Pro', 'Apple', 200, 850.00, 1099.00, 1, '/images/products/dummy.jpg', 1),
 ('Pixel 8', 'Google', 100, 500.00, 699.00, 1, '/images/products/dummy.jpg', 1),
@@ -210,7 +210,7 @@ INSERT INTO [dbo].[Invoices] ([SerialNumber], [SequenceNumber], [Date], [Time], 
 GO
 
 -- 9. LineItems (40 Random Details mapping to Invoices)
-INSERT INTO [dbo].[LineItems] ([Description], [Quantity], [UnitPrice], [Total], [Invoice_InvoiceId]) VALUES 
+INSERT INTO [dbo].[LineItems] ([Description], [Quantity], [UnitPrice], [Amount], [Invoices_InvoiceId]) VALUES 
 ('Galaxy S24 Ultra', 1, 1299.99, 1299.99, 1), ('AirPods Max', 1, 549.00, 549.00, 1),
 ('MacBook Air M3', 1, 1199.00, 1199.00, 2), ('OLED C3 65" 4K Smart TV', 1, 1799.00, 1799.00, 2),
 ('Surface Pro 9', 1, 1299.99, 1299.99, 3), ('PlayStation 5 Console', 1, 499.99, 499.99, 3),
